@@ -1,1 +1,1 @@
-web: rest-and-go
+web: go run main.go
