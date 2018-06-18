@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"github.com/gorilla/mux"
 	"net/http"
 	"log"
@@ -62,6 +63,12 @@ func deleteBook(resp http.ResponseWriter, request *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	router := mux.NewRouter()
 
 	books = append(books, Book{ID: "1", Isbn: "12345", Title: "Book one", Author: &Author{FirstName: "Lorem", LastName: "Dolors"}})
@@ -75,5 +82,5 @@ func main() {
 	router.HandleFunc("/api/books/{id}", updateBook).Methods("PUT")
 	router.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE")
 
-	log.Fatal(http.ListenAndServe(":8000", router));
+	log.Fatal(http.ListenAndServe(port, router));
 }
