@@ -1,0 +1,9 @@
+{
+  "name": "Money rocket: Vault",
+  "description": "Vault operations",
+  "keywords": [
+    "go", "money"
+  ],
+  "website": "https://github.com/money-rocket/vault",
+  "repository": "https://github.com/money-rocket/vault"
+}
