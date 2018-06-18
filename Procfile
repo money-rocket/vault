@@ -1,1 +1,1 @@
-web: vault
+web: ./vault
